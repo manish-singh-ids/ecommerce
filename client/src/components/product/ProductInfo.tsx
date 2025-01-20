@@ -37,9 +37,15 @@ const ProductInfo: React.FC = () => {
           </div>
           <div className='w-full mt-8'>
             <button
-              className='px-7 py-4 bg-white text-black rounded-lg active:scale-95 active:shadow-lg shadow-[6px_8px_0px_2px_rgba(255,_234,_0,_1)]'
+              disabled={selectedProduct?.availabilityStatus.toLowerCase().trim() === "out of stock"}
+              className={`px-7 py-4 bg-white text-black rounded-lg active:scale-95 
+    active:shadow-lg shadow-[6px_8px_0px_2px_rgba(255,_234,_0,_1)]
+     ${selectedProduct?.availabilityStatus.toLowerCase().trim() === "out of stock" ? ' cursor-not-allowed  opacity-50' : ''}`}
               onClick={() => dispatch(addToCart(selectedProduct))}>
-              Add to Cart</button>
+              Add to Cart
+            </button>
+
+
           </div>
         </div>
         {/* </div> */}
